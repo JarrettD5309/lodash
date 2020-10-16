@@ -162,6 +162,56 @@ const _ = {
 
         const droppedArray = array.slice(n);
         return droppedArray;
+    },
+    // My Solution
+    // dropWhile(arr,func) {
+    //     for (let i=0;i<arr.length;i++) {
+    //         const funcVal = func(arr[i],i,arr);
+    //         if (!funcVal) {
+    //             return arr.slice(i);
+    //         }
+    //     }
+
+    //     return [];
+    // },
+    // Codecademy Solution
+    dropWhile(array,predicate) {
+        const dropNumber = array.findIndex((element,index)=>!predicate(element,index,array));
+        const droppedArray = this.drop(array,dropNumber);
+        return droppedArray;
+    },
+    // My Solution
+    // chunk(arr,size) {
+    //     if (!size) {
+    //         size = 1;
+    //     }
+
+    //     const newArr = [];
+    //     const iterNum = arr.length/size;
+    //     const roundedIterNum = Math.ceil(iterNum);
+    //     let sliceStart = 0;
+
+    //     for (let i=0;i<roundedIterNum;i++) {
+    //         newArr.push(arr.slice(sliceStart,sliceStart+size));
+    //         sliceStart+=size;
+    //     }
+
+    //     return newArr;
+
+    // },
+    // Codecademy Solution
+    chunk(array,size) {
+        if (!size) {
+            size = 1;
+        }
+
+        const arrayChunks = [];
+        for (let i=0;i<array.length;i+=size) {
+            const arrayChunk = array.slice(i,i+size);
+            arrayChunks.push(arrayChunk);
+        }
+
+        return arrayChunks;
     }
 
 };
