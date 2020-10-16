@@ -88,6 +88,80 @@ const _ = {
         const endPaddingLength = length-string.length-startPaddingLength;
         const paddedString = ' '.repeat(startPaddingLength) + string + ' '.repeat(endPaddingLength);
         return paddedString;
+    },
+    // My Solution
+    // has(obj,key) {
+    //     if (obj[key]) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // },
+    // Codecademy Solution
+    has(object,key) {
+        const hasValue = object[key]!==undefined;
+        return hasValue;
+    },
+    // My Solution
+    // invert(obj) {
+    //     const newObj = {};
+    //     for (const [key, value] of Object.entries(obj)) {
+    //         newObj[value] = key;
+    //     }
+    //     return newObj;
+    // },
+    // Codecademy Solution
+    invert(object) {
+        const invertedObject = {};
+        for (const key in object) {
+            const originalValue = object[key];
+            invertedObject[originalValue] = key;
+        }
+        return invertedObject;
+    },
+    // My Solution
+    // findKey(obj,func) {
+    //     for (const [key, value] of Object.entries(obj)) {
+    //         if (func(value)) {
+    //             return key;
+    //         } else {
+    //             return undefined;
+    //         }
+    //     }
+    // },
+    // Codecademy Solution
+    findKey(object,predicate) {
+        for (const key in object) {
+            const value = object[key];
+            const predicateReturnValue = predicate(value);
+            if (predicateReturnValue) {
+                return key;
+            }
+        }
+        return undefined;
+    },
+    // My Solution
+    // drop(arr,num) {
+    //     if (num>arr.length) {
+    //         num = arr.length;
+    //     } else if (!num) {
+    //         num=1;
+    //     }
+
+    //     for (i=0;i<num;i++) {
+    //         arr.shift();
+    //     }
+
+    //     return arr;
+    // },
+    // Codecademy Solution
+    drop(array,n) {
+        if (!n) {
+            n=1;
+        }
+
+        const droppedArray = array.slice(n);
+        return droppedArray;
     }
 
 };
